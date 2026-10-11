@@ -1,5 +1,5 @@
 /** Configuration NON secrète. Collez ici l'URL de déploiement du Web App Apps Script. */
-window.CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbyPRJbbXEoTt9jV3fmBQk0HeXRc0JvetHTWxHCrxolWa3oVT9moHomIOc580_lKVpWxWg/exec' };
+window.CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbwlYX0_7yf3YO4QqUTqgBTVdHhtY9Uun4rWaHvoai8e73AF0SNL-MDvtBmAcpGRgoPg/exec' };
 
 
 
