@@ -1,0 +1,51 @@
+:root{--bg:#f2f4f8;--card:#fff;--ink:#16213a;--mute:#5b6580;--line:#d9deea;--accent:#2b59e6;--accent-ink:#fff;--ok:#17724a;--okbg:#e2f4ea;--bad:#b3261e;--badbg:#fbe6e4;--r:12px;font-size:100%}
+[data-theme=dark]{--bg:#0f1524;--card:#18203a;--ink:#e8ecf7;--mute:#9aa5c4;--line:#2c3657;--accent:#7b9bff;--accent-ink:#0f1524;--ok:#6fd3a0;--okbg:#14352a;--bad:#ff8f87;--badbg:#3d1c1e}
+[data-size=grand]{font-size:118%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--card);border-bottom:1px solid var(--line)}
+header.top nav{display:flex;gap:.5rem}
+main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+h1{font-size:1.75rem;line-height:1.2;margin:.2rem 0 1rem}
+h2{font-size:1.2rem;margin:1.5rem 0 .75rem}
+.btn{min-height:44px;padding:.6rem 1.1rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+input[type=text],input[type=email],input[type=password],input[type=search],textarea,select{width:100%;min-height:44px;padding:.6rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+label{display:block;font-weight:600;margin:.9rem 0 .3rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.muted{color:var(--mute)} .error{color:var(--bad);font-weight:600} .hidden{display:none}
+.stats{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.stat{border:1px solid var(--line);border-radius:10px;padding:.7rem;background:var(--card)}
+.stat b{display:block;font-size:1.5rem}
+.login{max-width:400px;margin:12vh auto;padding:0 1.25rem}
+.quiz-card{display:flex;flex-direction:column;gap:.5rem} .quiz-card .btn{margin-top:auto}
+.spark{display:flex;align-items:flex-end;gap:4px;height:50px} .spark i{flex:1;background:var(--accent);border-radius:3px 3px 0 0;min-width:6px}
+.btn,.card{transition:background .15s,border-color .15s}
+[data-anim=off] *{transition:none!important;animation:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.qcard{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:1rem;margin:1rem 0}
+.qcard legend{font-weight:700;padding:0 .4rem}
+.opt{display:flex;gap:.5rem;align-items:center;margin:.4rem 0}
+.opt input[type=checkbox]{width:1.3rem;height:1.3rem;flex:none}
+.row2{display:grid;gap:.75rem;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+.sheetnote{font-size:.85rem;color:var(--mute);margin:.2rem 0 0}
+
+.loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.loader::after{content:"";width:48px;height:48px;border:4px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hidden{display:none!important}
+.fab-wrap{position:fixed;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));z-index:100;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+.fab{width:60px;height:60px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:2rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.28);transition:transform .2s}
+.fab[aria-expanded=true]{transform:rotate(45deg)}
+.fab-menu{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+.fab-menu .btn{box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.badge{display:inline-block;padding:.1rem .6rem;border-radius:99px;font-size:.85rem;font-weight:700}
+.badge.on{background:var(--okbg);color:var(--ok)} .badge.off{background:var(--line);color:var(--mute)}
+.mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+main{padding-bottom:7rem}
