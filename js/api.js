@@ -11,11 +11,21 @@ const Api = (() => {
     }
     return data;
   }
+  /** Stale-while-revalidate : affiche d'abord la copie locale (instantané), puis les données fraîches. */
+  async function swr(key, fetcher, render) {
+    const k = 'c_' + key;
+    try { const c = JSON.parse(localStorage.getItem(k)); if (c) render(c); } catch (e) {}
+    const fresh = await fetcher();
+    try { localStorage.setItem(k, JSON.stringify(fresh)); } catch (e) {}
+    render(fresh);
+  }
   return {
+    swr,
     login: (email, password) => call('login', { email, password }),
     register: (nom, email, password) => call('register', { nom, email, password }),
     logout: () => call('logout').catch(() => {}),
     me: () => call('me').then(d => d.user),
+    home: () => call('home'),
     quizzes: () => call('quizzes').then(d => d.quizzes),
     questions: quiz_id => call('questions', { quiz_id }).then(d => d.questions),
     grade: (question_id, answer) => call('grade', { question_id, answer }),
