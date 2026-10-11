@@ -1,0 +1,16 @@
+<!doctype html><html lang="fr"><head><title>Paramètres</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/style.css"></head><body><header class="top"><strong>Révisions</strong><nav aria-label="Navigation principale"><a class="btn" href="home.html">Accueil</a><a class="btn" href="settings.html">Paramètres</a></nav></header>
+<main><h1>Paramètres</h1><div id="loader" class="loader" role="status" aria-label="Chargement"></div>
+<section class="card" aria-labelledby="h-user"><h2 id="h-user" style="margin-top:0">Mon compte</h2>
+<p>E-mail : <strong id="mail"></strong></p>
+<label for="nom">Nom affiché</label><input id="nom" type="text"><p><button class="btn" id="saveNom" style="margin-top:.6rem">Enregistrer le nom</button></p>
+<h2>Mot de passe</h2><label for="old">Mot de passe actuel</label><input id="old" type="password" autocomplete="current-password">
+<label for="new">Nouveau mot de passe (8 caractères minimum)</label><input id="new" type="password" autocomplete="new-password">
+<p><button class="btn" id="savePw" style="margin-top:.6rem">Changer le mot de passe</button></p><p id="accMsg" role="status"></p>
+<h2>Statistiques</h2><div id="stats" class="stats"></div><div id="spark" class="spark" aria-hidden="true" style="margin-top:1rem"></div>
+<p><button class="btn" id="out" style="margin-top:1rem">Se déconnecter</button></p></section>
+<section class="card" aria-labelledby="h-app" style="margin-top:1rem"><h2 id="h-app" style="margin-top:0">Application</h2>
+<label for="theme">Thème</label><select id="theme"><option value="light">Clair</option><option value="dark">Sombre</option></select>
+<label for="size">Taille du texte</label><select id="size"><option value="normal">Normale</option><option value="grand">Grande</option></select>
+<label style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" id="anim" style="width:1.2rem;height:1.2rem"> Animations</label>
+<p class="muted">Préférences enregistrées sur cet appareil.</p></section></main>
+<script src="js/config.js"></script><script src="js/auth.js"></script><script src="js/api.js"></script><script src="js/scoring.js"></script><script src="js/settings.js"></script></body></html>

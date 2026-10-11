@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><head><title>Connexion</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/style.css"></head><body>
+<main class="login"><h1>Connexion</h1>
+<form id="f" class="card" novalidate>
+<label for="email">Adresse e-mail</label><input id="email" type="email" autocomplete="username" required>
+<label for="pw">Mot de passe</label><input id="pw" type="password" autocomplete="current-password" required>
+<p id="err" class="error" role="alert"></p>
+<button class="btn primary" style="width:100%" id="go">Se connecter</button></form>
+<p style="text-align:center;margin-top:1rem"><a href="inscription.html">Créer un compte</a></p>
+</main>
+<div id="loader" class="loader hidden" role="status" aria-label="Chargement"></div><script src="js/config.js"></script><script src="js/auth.js"></script><script src="js/api.js"></script><script src="js/scoring.js"></script>
+<script>
+if (Auth.token()) location.replace('home.html');
+document.getElementById('f').addEventListener('submit', async e => {
+  e.preventDefault(); const b = document.getElementById('go'), err = document.getElementById('err'); err.textContent = ''; b.disabled = true; document.getElementById('loader').classList.remove('hidden');
+  try { const d = await Api.login(email.value, pw.value); Auth.set({ token: d.token, user: d.user }); location.replace('home.html'); }
+  catch (x) { err.textContent = x.message; document.getElementById('loader').classList.add('hidden'); b.disabled = false; }
+});
+</script></body></html>
